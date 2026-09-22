@@ -1,0 +1,27 @@
+.content {
+  margin: 3rem;
+  max-width: 30rem;
+}
+
+h1 {
+  color: lightgreen;
+}
+
+.div-1 {
+  padding: 1rem;
+  background-color: lightpink;
+}
+
+.div-2 {
+  background-color: lightblue;
+  width: 15rem;
+  border: 1px solid black;
+  padding-left: 1rem;
+}
+
+.div-3 {
+  background-color: lightgreen;
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0 1rem 0 1rem;
+}
