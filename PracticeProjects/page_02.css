@@ -6,3 +6,27 @@
 .image-1 {
   max-width: 100%;
 }
+
+.span-1 {
+  font-weight: 600;
+}
+
+.span-2 {
+  font-size: 2rem;
+}
+
+.span-3 {
+  text-decoration: underline;
+}
+
+.span-4 {
+  color: teal;
+}
+
+.font-1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-2 {
+  font-family: "Ubuntu", sans-serif;
+}
