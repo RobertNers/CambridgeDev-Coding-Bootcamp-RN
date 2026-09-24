@@ -1,0 +1,30 @@
+.content {
+  margin: 3rem;
+  max-width: 30rem;
+  font-family: "michroma";
+  
+}
+
+.image-1 {
+  width: 10rem;
+  border: 2px dashed lime;
+}
+
+.picbox {
+  width: 20rem;
+}
+
+.image-2 {
+  max-width: 100%;
+}
+
+.container {
+  background: pink;
+  margin: 3rem;
+  max-width: 40rem;
+}
+
+.person {
+  width: 5rem;
+  text-wrap: nowrap;
+}
