@@ -25,6 +25,9 @@
 }
 
 .person {
-  width: 5rem;
-  text-wrap: nowrap;
+  border: 3px solid pink;
+  font-size: 2rem;
 }
+
+.noline {
+  text-decoration: none;
