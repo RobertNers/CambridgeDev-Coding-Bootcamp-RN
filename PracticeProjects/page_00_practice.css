@@ -1,0 +1,21 @@
+body {
+  background: lightpink;
+}
+
+.content {
+  max-width: 30rem;
+  text-align: center;
+}
+
+.image {
+  margin: 25% 100% 0% 100%;
+  max-width: 100%;
+  border: 5px solid rgb(191, 127, 34);
+  border-radius: 100%;
+  transition: box-shadow 0.3s ease-in-out, margin 0.2s ease-in;
+}
+
+.image:hover {
+  box-shadow: 16px 18px 21px -3px rgba(0,0,0,0.54);
+  margin: 20% 100% 0% 100%;
+}
