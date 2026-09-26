@@ -1,3 +1,49 @@
-.content {
-  margin: 3rem;
+html {
+  background-color: lightsteelblue;
 }
+
+
+.content {
+  margin: 1rem;
+  font-family: "NTR";
+}
+
+h1 {
+  line-height: 0;
+  margin-top: 2rem;
+}
+
+.headcard {
+  font-family: "Cagliostro";
+  display: inline-flex;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 15px;
+  transition: box-shadow 0.3s ease-in-out;
+  max-width: 40rem;
+  text-wrap: pretty;
+}
+
+.headcard:hover {
+  box-shadow: 10px 12px 15px -9px rgba(0,0,0,0.54);
+}
+
+.cardtext {
+  margin-left: 3rem;
+}
+
+.cardpic {
+}
+
+.profilepic {
+  width: 150px;
+  border: 5px solid rgb(191, 127, 34);
+  border-radius: 100%;
+  box-shadow: 8px 10px 13px -11px rgba(0,0,0,0.54);
+  transition: transform 0.2s ease-in, box-shadow 0.3s ease-in-out;
+}
+
+.profilepic:hover {
+  transform: translateY(-10px);
+  box-shadow: 10px 12px 15px -9px rgba(0,0,0,0.54);
+}
+
