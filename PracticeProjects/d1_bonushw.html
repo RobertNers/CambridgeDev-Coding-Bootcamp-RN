@@ -6,13 +6,13 @@
 </head>
 <body>
   <div class="headline">
-    <h3>EVERYTHING IS PERSONAL. INCLUDING THIS BLOG.</h3>
+    <p>EVERYTHING IS PERSONAL. INCLUDING THIS BLOG.</p>
     <h1>Train of Thought</h1>
   </div>
 
   <div class="navbar">
     <div class="navbutton">
-        Home
+        <a href="homepage.html">Home</a>
     </div>
 
     <div class="navbutton">
@@ -27,13 +27,16 @@
         Contact
     </div>
 
-    <div class="navbutton">
-        <!-- search bar -->
-        "search bar"
+    <div class="navbutton search">
+      <search>
+        <form action="./search/">
+          <input type="search" placeholder="Search...">
+          <button><img src="material_search.svg"</button>
+        </form>
+      </search>
     </div>
 
-    <div class="navbutton">
-        <!-- socmed icons -->
+    <div class="navbutton socmed">
       <!-- Social Media Icon Set Made With NiftyButtons.com -->
         <div class="social-icons" style="display: flex; gap: 3px; flex-wrap: wrap; justify-content: center;">
           <a href="wip" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; color: #000000; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; " onmouseout="this.style.transform=''; this.style.filter=''; this.style.animation='';">
@@ -61,18 +64,16 @@
         </div>
     </div>
 
-    <div class="navbutton">
-        <!-- placeholder -->
-    </div>
   </div>
 
   <div class="featured">
-    <!--
-      maybe a div for 'featured post', and
-      a div for the whole post (with pic)?
-      or pic then gets its own div, with the text being its own?
-    -->
-      <p>A AA<br>AAAAA<br><br></p>
+    <p class="label">FEATURED POST</p>
+    <img src="sleepybimb.jpeg">
+    <div class="postbody">
+      <p class="miniinfo">Robert N.<br>Oct 2, 2026 - 2 min read</p>
+      <h2>Back to Bimba: Where He's Sleeping This Summer</h2>
+      <p>Create a blog post subtitle that summarizes your post bla bla bla lorem ipsup shmorem shmipsum etc</p>
+    </div>
   </div>
 </body>
 </html>
