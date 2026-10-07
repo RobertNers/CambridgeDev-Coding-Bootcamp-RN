@@ -1,0 +1,46 @@
+* { box-sizing: border-box; }
+
+.content {
+  margin: 3rem;
+  max-width: 40rem;
+}
+
+.div-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.div-flex-child {
+  background: beige;
+  padding: 1rem;
+  width: 15rem;
+  margin: 0.2rem;
+}
+
+.button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  
+}
+
+.div-fullwidth {
+  display: flex;
+  justify-content: space-between;
+  background: beige;
+  padding: 1rem;
+}
+
+.columns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.column {
+  padding: 1rem;
+  background: beige;
+}
