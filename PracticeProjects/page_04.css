@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.icon {
+  width: 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.navlink {
+  background: lightgrey;
+  border: 1px solid darkgrey;
+  padding: 0.5rem;
+}
