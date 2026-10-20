@@ -7,7 +7,7 @@ This is my first public repo, and I am using it to learn HTML/CSS/JS and git its
 An incomplete list of to-dos (excluding specific assignments etc):
 
 - [ ] Re-organize & clean up Practice Projects folder:
-  - [ ] Create an assets folder, with appropriate subfolders
+  - [x] Create an assets folder, with appropriate subfolders
   - [ ] Standardize filenames.
-  - [ ] Refactor existing html to ensure correct paths
+  - [x] Refactor existing html to ensure correct paths
 - [ ] Re-organize root itself
