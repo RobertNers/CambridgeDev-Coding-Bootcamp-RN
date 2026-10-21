@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "montserrat";
+  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-regular.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-bold.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-medium.woff2");
+  font-weight: 500;
+}
+
+
+button {
+  all: unset;
+}
+
+body {
+  font-family: "montserrat", sans-serif;
+  font-size: 1.1rem;
+  margin:0; 
+  padding:0; 
+}
+
+.content {
+  display: flex;
+}
+
+.left-bar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-right: 1px solid black;
+  flex-shrink: 0;
+  position: fixed;
+  width: 220px;
+}
+
+.left-bar__button, .left-bar__text {
+  padding: 1rem;
+  border-top: 1px solid black;
+}
+
+.left-bar__button:hover, .choice-box__button:hover {
+  background-color: lightgrey;
+}
+
+.left-bar__title {
+  padding: 4rem 1rem;
+}
+
+.play-area {
+  margin-left: 235px;
+  flex: 1;
+  min-width: 0;
+}
+
+.choice-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.choice-box__button {
+  padding: 1rem;
+  background-color: mediumpurple;
+  display: none;
+}
+
+.choice-box__button:hover {
+  background-color: rebeccapurple;
+}

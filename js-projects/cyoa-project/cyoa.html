@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Own Adventure</title>
+  <link rel="stylesheet" href="cyoa.css">
+  <script src="story.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <div class="content">
+    
+    <div class="left-bar">
+      <div class="left-bar__title">CYOA Project v0.1</div>
+      <button class="left-bar__button" id="buttonHome">Home</button>
+      <button class="left-bar__button" id="buttonTheme">Toggle Dark Mode</button>
+      <button class="left-bar__button" id="buttonHelp">Help</button>
+      <div class="left-bar__text">Your Class:<p id="classDisplay">Aimless Soul</p></div>
+    </div>
+
+    <div class="play-area">
+
+      <div class="story-box"><p id="storyText"></p></div>
+
+      <div class="choice-box">
+        <button class="choice-box__button" id="choiceOne"></button>
+        <button class="choice-box__button" id="choiceTwo"></button>
+        <button class="choice-box__button" id="choiceThree"></button>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
