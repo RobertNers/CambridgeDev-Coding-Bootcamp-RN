@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "montserrat";
+  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-regular.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-bold.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "montserrat";
+  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-medium.woff2");
+  font-weight: 500;
+}
+
+body {
+  font-family: "montserrat", sans-serif;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+h1 {
+  line-height: 1;
+}
+
+.content {
+  margin-top: 15rem;
+  max-width: 35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.converter__box {
+  all: unset;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin: 1rem 0 0.5rem;
+  width: 70%;
+}
+
+.converter__box:focus {
+  border: 1px solid cornflowerblue;
+}
+
+.converter__buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.converter__button {
+  all: unset;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1.5rem;
+  background-color: cornflowerblue;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.converter__button:hover {
+  background-color: royalblue;
+}

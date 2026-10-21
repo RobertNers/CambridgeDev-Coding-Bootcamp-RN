@@ -47,3 +47,21 @@ h1 {
   box-shadow: 10px 12px 15px -9px rgba(0,0,0,0.54);
 }
 
+.directory {
+  column-fill: auto;
+  column-width: 300px;
+  column-gap: 2rem;
+  height: 500px;
+}
+
+li {
+  break-inside: avoid;
+}
+
+@media (max-width: 800px) {
+  .directory {
+    column-count: 1;
+    column-width: auto;
+    height: auto;
+  }
+}
