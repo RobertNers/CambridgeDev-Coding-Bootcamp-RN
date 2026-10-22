@@ -57,6 +57,7 @@ body {
   margin-left: 235px;
   flex: 1;
   min-width: 0;
+  padding-top: 4rem;
 }
 
 .choice-box {

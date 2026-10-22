@@ -1,88 +1,102 @@
+const gameOver = "Start over?";
+
 const start = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "This is the start of the story. Here you will pick your class.",
   choices: [
-    { body: "choiceOne", next: "magic" },
-    { body: "choiceTwo", next: "muscle" },
+    { body: "Witch", next: "magic" },
+    { body: "Barbarian", next: "muscle" },
   ]
 };
 
 const magic = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "You have chosen the path of magic.",
   choices: [
-    { body: "choiceOne", next: "endAcademic" },
-    { body: "choiceTwo", next: "encounter" },
+    { body: "Go study forever", next: "endAcademic" },
+    { body: "Go adventuring", next: "encounter" },
   ]
 };
 
 const muscle = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "You have chosen the path of frenzied strength.",
   choices: [
-    { body: "choiceOne", next: "gladiator" },
-    { body: "choiceTwo", next: "encounter" },
+    { body: "Glory", next: "gladiator" },
+    { body: "Adventure", next: "encounter" },
   ]
 };
 
 const gladiator = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "Arena stuff.",
   choices: [
-    { body: "choiceOne", next: "endGladiator" },
-    { body: "choiceTwo", next: "winGladiator" },
+    { body: "Lose", next: "endGladiator" },
+    { body: "Win", next: "winGladiator" },
   ]
 };
 
 const encounter = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "Dragon or something",
   choices: [
-    { body: "choiceOne", next: "winMagic", class: "mage" },
-    { body: "choiceTwo", next: "winMuscle", class: "barbarian" },
-    { body: "choiceThree", next: "flee" },
+    { body: "win(magic)", next: "winMagic", class: "Witch" },
+    { body: "win(muscle)", next: "winMuscle", class: "Barbarian" },
+    { body: "run away", next: "flee" },
   ]
 };
 
 const flee = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "hide behind rock",
   choices: [
-    { body: "choiceOne", next: "secondChance" },
+    { body: "catch breath", next: "secondChance" },
   ]
 };
 
 const secondChance = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
+  body: "youre ready. you see an opening!",
   choices: [
-    { body: "choiceOne", next: "winMagic", class: "mage" },
-    { body: "choiceTwo", next: "winMuscle", class: "barbarian" },
-    { body: "choiceThree", next: "endCoward" },
+    { body: "win(magic)", next: "winMagic", class: "Witch" },
+    { body: "win(muscle)", next: "winMuscle", class: "Barbarian" },
+    { body: "run away again", next: "endCoward" },
   ]
 };
 
 const endAcademic = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "study forever the end.",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const endGladiator = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "die gloriously the end",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const winGladiator = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "win gloriously the end",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const endCoward = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "laughing stock",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const winMagic = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "won harry potter style",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const winMuscle = {
-  body: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-  choices: [],
+  body: "won conan style",
+  choices: [
+    { body: gameOver, next: "start" },
+  ],
 };
 
 const story = {
