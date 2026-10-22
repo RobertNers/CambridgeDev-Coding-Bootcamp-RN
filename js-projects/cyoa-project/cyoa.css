@@ -20,7 +20,6 @@ button {
   cursor: pointer;
 }
 
-
 body {
   font-family: "montserrat", sans-serif;
   font-size: 1.1rem;
@@ -68,6 +67,12 @@ a {
   padding-top: 4rem;
 }
 
+.story-box {
+  max-width: 60rem;
+  text-wrap: pretty;
+  margin-right: 15px;
+}
+
 .choice-box {
   display: flex;
   gap: 1rem;
@@ -88,4 +93,31 @@ a {
 
 .choice-box__button:active {
   transform: translateY(2px);
-}:
+}
+
+#storyText {
+  white-space: pre-line;
+}
+
+.coward {
+  color: plum;
+}
+
+.barbarian {
+  color: red;
+}
+
+.witch {
+  color: magenta;
+}
+
+.spell {
+  font-style: italic;
+}
+
+.the-end {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}

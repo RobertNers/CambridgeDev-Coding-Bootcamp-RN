@@ -4,47 +4,53 @@ const choiceThree = document.getElementById("choiceThree");
 const lightBulb = document.getElementById("buttonTheme");
 const helpButton = document.getElementById("buttonHelp");
 const storyText = document.getElementById("storyText");
-const playerClasses = [ "Witch", "Barbarian" ];
+const playerClasses = [ "Aimless Soul", "Witch", "Barbarian" ];
 
 let currentScene = "start";
-let playerClass = "Aimless Soul";
+let playerClass = playerClasses[0];
 let isDark = false;
 
 function displayButton(choiceButton, curScene, x) {
   const buttonContent = story[curScene].choices[x];
-  if ( buttonContent && ( buttonContent.class === playerClass || !buttonContent.class ) ) {
+  if ( buttonContent && ( buttonContent.class === playerClass || !buttonContent.class || buttonContent.class === playerClasses[0] ) ) {
     choiceButton.style.display = "block";
-    choiceButton.textContent = buttonContent.body;
+    choiceButton.innerHTML = buttonContent.body;
     choiceButton.onclick = () => {
       currentScene = buttonContent.next;
-      checkClass(buttonContent.body);
+      checkClass(buttonContent.classSelect);
       setup();
     };
   } else {
     choiceButton.style.display = "none";
-  }
+  };
 };
 
 function checkClass(possibleClass) {
   const classDisplay = document.getElementById("classDisplay");
+
   if (playerClasses.includes(possibleClass)) {
     playerClass = possibleClass;
     classDisplay.textContent = playerClass;
-  } else if (possibleClass === gameOver ) {
-    playerClass = "Aimless Soul";
+  } 
+  else if (possibleClass === gameOver ) {
+    playerClass = playerClasses[0];
     classDisplay.textContent = playerClass;
   };
+
   if (classDisplay.textContent === "Witch") {
     classDisplay.style.color = "magenta";
-  } else if (classDisplay.textContent === "Barbarian") {
-    classDisplay.style.color = "red";
-  } else {
-    classDisplay.style.color = "";
   }
+  else if (classDisplay.textContent === "Barbarian") {
+    classDisplay.style.color = "red";
+  }
+  else {
+    classDisplay.style.color = "";
+  };
+
 };
 
 function setup() {
-  storyText.textContent = story[currentScene].body;
+  storyText.innerHTML = story[currentScene].body;
   displayButton(choiceOne, currentScene, 0);
   displayButton(choiceTwo, currentScene, 1);
   displayButton(choiceThree, currentScene, 2);
