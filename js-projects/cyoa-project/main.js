@@ -3,10 +3,14 @@ const choiceTwo = document.getElementById("choiceTwo");
 const choiceThree = document.getElementById("choiceThree");
 const lightBulb = document.getElementById("buttonTheme");
 const helpButton = document.getElementById("buttonHelp");
+const undoButton = document.getElementById("buttonUndo");
 const storyText = document.getElementById("storyText");
+
 const playerClasses = [ "Aimless Soul", "Witch", "Barbarian" ];
 
 let currentScene = "start";
+let previousScene = "";
+let previousClass = "";
 let playerClass = playerClasses[0];
 let isDark = false;
 
@@ -16,6 +20,8 @@ function displayButton(choiceButton, curScene, x) {
     choiceButton.style.display = "block";
     choiceButton.innerHTML = buttonContent.body;
     choiceButton.onclick = () => {
+      previousScene = currentScene;
+      previousClass = playerClass;
       currentScene = buttonContent.next;
       checkClass(buttonContent.classSelect);
       setup();
@@ -65,6 +71,19 @@ function fakeHelp() {
   choiceThree.style.display = "none";
 };
 
+function undoScene() {
+  let classHolder = playerClass;
+  let sceneHolder = currentScene;
+
+  currentScene = previousScene;
+  previousScene = sceneHolder;
+
+  playerClass = previousClass;
+  previousClass = classHolder;
+  checkClass(playerClass);
+  setup();
+}
+
 function darkMode() {
   const darkModeText = "floralwhite";
   const darkModeBg = "#202124";
@@ -95,7 +114,8 @@ function darkMode() {
   };
 };
 
-helpButton.onclick = fakeHelp;
 lightBulb.onclick = darkMode;
+helpButton.onclick = fakeHelp;
+undoButton.onclick = undoScene;
 
 setup();
