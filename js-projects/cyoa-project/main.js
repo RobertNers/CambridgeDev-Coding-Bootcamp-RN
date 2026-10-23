@@ -97,18 +97,18 @@ function darkMode() {
     docBody.backgroundColor = darkModeBg
     docBody.color = darkModeText;
     barBorders.style.borderColor = darkModeText;
-    btnBorders[0].style.borderColor = darkModeText;
-    btnBorders[1].style.borderColor = darkModeText;
-    btnBorders[2].style.borderColor = darkModeText;
+    for (let button = 0; button < btnBorders.length; button += 1) {
+      btnBorders[button].style.borderColor = darkModeText;
+    };
     lastBorder[0].style.borderColor = darkModeText;
     isDark = true;
   } else {
     docBody.backgroundColor = "";
     docBody.color = "";
     barBorders.style.borderColor = "";
-    btnBorders[0].style.borderColor = "";
-    btnBorders[1].style.borderColor = "";
-    btnBorders[2].style.borderColor = "";
+    for (let button = 0; button < btnBorders.length; button += 1) {
+      btnBorders[button].style.borderColor = "";
+    };
     lastBorder[0].style.borderColor = "";
     isDark = false;
   };
