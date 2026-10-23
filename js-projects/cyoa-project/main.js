@@ -6,7 +6,7 @@ const helpButton = document.getElementById("buttonHelp");
 const undoButton = document.getElementById("buttonUndo");
 const storyText = document.getElementById("storyText");
 
-const playerClasses = [ "Aimless Soul", "Witch", "Barbarian" ];
+const playerClasses = [ "Aimless Soul", "Witch", "Barbarian", "Easter Egg" ];
 
 let currentScene = "start";
 let previousScene = "";
