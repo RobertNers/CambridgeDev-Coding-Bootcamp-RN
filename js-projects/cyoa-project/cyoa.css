@@ -64,6 +64,10 @@ a {
   font-weight: 500;
 }
 
+.left-bar__spacer {
+  flex-grow: 1;
+}
+
 .play-area {
   margin-left: 235px;
   flex: 1;

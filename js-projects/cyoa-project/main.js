@@ -5,6 +5,7 @@ const lightBulb = document.getElementById("buttonTheme");
 const helpButton = document.getElementById("buttonHelp");
 const undoButton = document.getElementById("buttonUndo");
 const storyText = document.getElementById("storyText");
+const endTracker = document.getElementById("timesFinished");
 
 const darkModeText = "floralwhite";
 const darkModeBg = "#202124";
@@ -21,6 +22,16 @@ let currentScene = "start";
 let previousScene = "";
 let previousClass = "";
 let playerClass = playerClasses[0];
+
+function setEnds(direction) {
+  let gameOverNumber = Number(localStorage.getItem("gameOvers"));
+  if (direction === "+") {
+    gameOverNumber += 1;
+  } else if (direction === "-") {
+    gameOverNumber -= 1;
+  };
+  localStorage.setItem("gameOvers",gameOverNumber);
+};
 
 function checkTheme() {
   const colorScheme = localStorage.getItem("theme");
@@ -57,10 +68,11 @@ function checkClass(possibleClass) {
   if (playerClasses.includes(possibleClass)) {
     playerClass = possibleClass;
     classDisplay.textContent = playerClass;
-  } 
+  }
   else if (possibleClass === gameOver ) {
     playerClass = playerClasses[0];
     classDisplay.textContent = playerClass;
+    setEnds("+");
   };
 
   if (classDisplay.textContent === "Witch") {
@@ -72,11 +84,14 @@ function checkClass(possibleClass) {
   else {
     classDisplay.style.color = "";
   };
-
 };
 
 function setup() {
+  if (!localStorage.getItem("gameOvers")) {
+    localStorage.setItem("gameOvers", "0");
+  };
   storyText.innerHTML = story[currentScene].body;
+  endTracker.textContent = localStorage.getItem("gameOvers");
   displayButton(choiceOne, currentScene, 0);
   displayButton(choiceTwo, currentScene, 1);
   displayButton(choiceThree, currentScene, 2);
@@ -92,6 +107,7 @@ function fakeHelp() {
 };
 
 function undoScene() {
+  if (previousScene === "") { return };
   let classHolder = playerClass;
   let sceneHolder = currentScene;
 
@@ -101,10 +117,17 @@ function undoScene() {
   playerClass = previousClass;
   previousClass = classHolder;
   checkClass(playerClass);
+
+  if (previousScene === "start" && (currentScene != "magic" && currentScene != "muscle")) {
+    setEnds("-");
+  } else if (currentScene === "start" && (previousScene != "magic" && previousScene != "muscle")) {
+    setEnds("+");
+  };
+
   setup();
 };
 
-function darkMode() {
+function changeTheme() {
   const whichTheme = checkTheme();
   if (whichTheme === "light") {
     localStorage.setItem("theme","dark");
@@ -124,6 +147,7 @@ function makeLight() {
     btnBorders[button].style.borderColor = "";
   };
   lastBorder[0].style.borderColor = "";
+  lastBorder[1].style.borderColor = darkModeText;
 };
 
 function makeDark() {
@@ -135,6 +159,7 @@ function makeDark() {
     btnBorders[button].style.borderColor = darkModeText;
   };
   lastBorder[0].style.borderColor = darkModeText;
+  lastBorder[1].style.borderColor = darkModeText;
 };
 
 function themePersist() {
@@ -146,7 +171,7 @@ function themePersist() {
   };
 };
 
-lightBulb.onclick = darkMode;
+lightBulb.onclick = changeTheme;
 helpButton.onclick = fakeHelp;
 undoButton.onclick = undoScene;
 
