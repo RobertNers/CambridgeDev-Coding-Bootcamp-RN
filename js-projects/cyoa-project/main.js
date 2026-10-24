@@ -87,16 +87,18 @@ function undoScene() {
 function darkMode() {
   const darkModeText = "floralwhite";
   const darkModeBg = "#202124";
+  const darkModeLb = "#212024";
 
   const docBody = document.body.style;
-  const barBorders = document.getElementById("leftBar");
+  const leftBarCtl = document.getElementById("leftBar");
   const btnBorders = document.getElementsByClassName("left-bar__button");
   const lastBorder = document.getElementsByClassName("left-bar__text");
 
   if (!isDark) {
     docBody.backgroundColor = darkModeBg
     docBody.color = darkModeText;
-    barBorders.style.borderColor = darkModeText;
+    leftBarCtl.style.borderColor = darkModeText;
+    leftBarCtl.style.backgroundColor = darkModeLb;
     for (let button = 0; button < btnBorders.length; button += 1) {
       btnBorders[button].style.borderColor = darkModeText;
     };
@@ -105,7 +107,8 @@ function darkMode() {
   } else {
     docBody.backgroundColor = "";
     docBody.color = "";
-    barBorders.style.borderColor = "";
+    leftBarCtl.style.borderColor = "";
+    leftBarCtl.style.backgroundColor = "";
     for (let button = 0; button < btnBorders.length; button += 1) {
       btnBorders[button].style.borderColor = "";
     };

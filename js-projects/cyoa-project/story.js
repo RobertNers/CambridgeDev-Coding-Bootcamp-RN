@@ -1,7 +1,7 @@
 const gameOver = "Start over?";
 
 const start = {
-  body: `You wake up with no memory of where you are, or how you got here. You see nothing but pitch darkness all around you, and your breath quickens as youo begin to panic. You blink a few times, but your vision does not return to you. You hear the blood rushing in your ears, your heart beating nearly out of your chest, and... a soft skittering sound not-too-far ahead of you. You sit up and kick your feet, pushing yourself backward until your back collides with a cool, hard wall.
+  body: `You wake up with no memory of where you are, or how you got here. You see nothing but pitch darkness all around you, and your breath quickens as you begin to panic. You blink a few times, but your vision does not return to you. You hear the blood rushing in your ears, your heart beating nearly out of your chest, and... A soft skittering sound not-too-far ahead of you. You sit up and kick your feet, pushing yourself backward until your back collides with a cool, hard wall.
 
          The skittering grows nearer.
 
@@ -17,7 +17,7 @@ const start = {
 };
 
 const magic = {
-  body: `As quickly as it began, the roaring in your ears vanishes. Your heart slows to a comfortable and relaxed pace. You take a deep breath and push yourself to your feet. The musty air of this pitch black space smells different to you now. Your keen nose can easily separate the scents of mud, rat droppings, moss, and... rye? Rather than disgust, you feel a desire to know more. To gather the sources of these scents and find ways to make them useful.
+  body: `As quickly as it began, the roaring in your ears vanishes. Your heart slows to a comfortable and relaxed pace. You take a deep breath and push yourself to your feet. The musty air of this pitch black space smells different to you now. Your keen nose can easily separate the scents of mud, rat droppings, moss, and... Rye? Rather than disgust, you feel a desire to know more. To gather the sources of these scents and find ways to make them useful.
 
          Your train of thought is interrupted as the skittering brings you back to reality. You still can't see it, but you hear it very clearly now: thousands of little legs propelling a grotesque creature in your general direction. Instead of fear, you feel some mild disdain. You hold out your hand, palm forward and fingers spread, and begin to chant something in a language you surely did not speak a few minutes ago. Sparks begin to form and waft listlessly through the air around your hand. The faint light they produce is enough to finally see some of your surroundings.
 
@@ -53,15 +53,25 @@ const muscle = {
 };
 
 const gladiator = {
-  body: "Arena stuff. You know, for glory and stuff.",
+  body: `Weeks have passed since you left that place. The arcane dungeon in which you were reborn anew. You still do not know who you were before that day, but you're damn certain of who you are now.
+
+         <span class=spell>"Oof!"</span>
+
+         The armored mass of muscle that calls itself "Gregor the Unkillable" barrelled into you and knocked you off your feet. You'd hoped to be able to withstand the impact and redirect your opponent into--
+
+         <span class=spell>Whump.</span>
+
+         Gregor is determined to make you personally feel what that awful millipede no doubt felt when you first awoke. Every time he brought his fist down onto your head, the flimsy third-hand helmet you'd taken as a trophy from one of your previous victories creaked a bit louder. If you didn't act now, you'd certainly never achieve the glory you so desperately craved.
+
+         Your nascent career as a gladiator is about to end just as quickly as it began. What do you do?`,
   choices: [
-    { body: "Turns out I'm bad at winning.", next: "endGladiator" },
-    { body: "Actually I'm awesome at it.", next: "winGladiator" },
+    { body: "Use your dagger!", next: "endGladiator" },
+    { body: "Pocket sand!", next: "winGladiator" },
   ]
 };
 
 const encounter = {
-  body: "Something something adventurer's guild, something something mysterious disappearances in the mountains close to springs, something something go slay a shahapet (serpent-like spirit thing which leads people astray)",
+  body: `<span class="wip">[WIP].</span>\n\nSomething something adventurer's guild, something something mysterious disappearances in the mountains close to springs, something something go slay a shahapet (serpent-like spirit thing which leads people astray)`,
   choices: [
     { body: `<span class=spell>"Payt'ir"</span>`, next: "winMagic", class: "Witch" },
     { body: "Roar and charge it!", next: "winMuscle", class: "Barbarian" },
@@ -86,7 +96,7 @@ const secondChance = {
 };
 
 const endAcademic = {
-  body: `These volumes look like they haven't been touched for centuries. You notice that the space directly around this bookshelf seems particularly undisturbed; cracks in the stone floor are devoid of moss, and thick layers of dust coat every surface. Even the rat droppings which are presently nearly everywhere else in this room are completely absent on and around this bookshelf.
+  body: `<span class="wip">[WIP].</span>\n\nThese volumes look like they haven't been touched for centuries. You notice that the space directly around this bookshelf seems particularly undisturbed; cracks in the stone floor are devoid of moss, and thick layers of dust coat every surface. Even the rat droppings which are presently nearly everywhere else in this room are completely absent on and around this bookshelf.
 
          Something something ominous knowledge, something something never see the light of day again.
 
@@ -97,7 +107,11 @@ const endAcademic = {
 };
 
 const endGladiator = {
-  body: `die gloriously the end
+  body: `You try and deflect the incoming blows with your left arm as you blindly grope for the dagger at your hip. You only take another two punches to the head before you're shoving the tip of your blade into Gregor's armpit, hoping to strike a gap in his armor.
+
+         You feel your dagger sink into soft flesh, and the warm blood trickle down your forearm, leaving maroon droplets in the sand under you. You press the blade further and manage to push the hulking man off of you. You climb to your feet, your head buzzing from the adrenaline. Or maybe from the numerous dizzying blows it withstood. You move to wipe your brow with your forearm and are surprised to see it come back <span class="barbarian">bloodied</span>. Weren't you wearing a helmet, anyway? What happened to it?
+
+         You never get to learn the answers to these questions. The last thing you hear is a thunderous roar as you are tackled once more to the ground. Your head hits a rock, and Gregor the Unkillable puts an end to your story.
 
          <span class="the-end">The End.</span>`,
   choices: [
@@ -106,9 +120,9 @@ const endGladiator = {
 };
 
 const winGladiator = {
-  body: `win gloriously the end
+  body: `<img class="sand" src=https://i.giphy.com/i2GADdaJIscPS.webp>
 
-         <span class="the-end">The End.</span>`,
+         <span class="the-end">You win.\nThe End.</span>`,
   choices: [
     { body: gameOver, next: "start", classSelect: gameOver },
   ],
@@ -128,7 +142,7 @@ const endCoward = {
 };
 
 const winMagic = {
-  body: `won harry potter style,
+  body: `<span class="wip">[WIP].</span>\n\nwon harry potter style,
 
          <span class="the-end">The End.</span>`,
   choices: [
@@ -137,7 +151,7 @@ const winMagic = {
 };
 
 const winMuscle = {
-  body: `won conan style
+  body: `<span class="wip">[WIP].</span>\n\nwon conan style
 
          <span class="the-end">The End.</span>`,
   choices: [

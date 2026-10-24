@@ -25,6 +25,8 @@ body {
   font-size: 1.1rem;
   margin:0;
   padding:0;
+  background: #F0FDFF;
+  color: 202124;
 }
 
 a {
@@ -45,6 +47,7 @@ a {
   flex-shrink: 0;
   position: fixed;
   width: 220px;
+  background-color: #F0FFFA;
 }
 
 .left-bar__button, .left-bar__text {
@@ -58,6 +61,7 @@ a {
 
 .left-bar__title {
   padding: 4rem 1rem;
+  font-weight: 500;
 }
 
 .play-area {
@@ -115,9 +119,23 @@ a {
   font-style: italic;
 }
 
+.enemy {
+  color: slateblue;
+}
+
 .the-end {
   display: block;
   text-align: center;
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+.sand {
+  display: block;
+  margin: auto;
+}
+
+.wip {
+  font-weight: 700;
+  color: darkkhaki;
 }
