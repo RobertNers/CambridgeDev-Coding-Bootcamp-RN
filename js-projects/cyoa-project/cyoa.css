@@ -81,22 +81,19 @@ a {
   display: flex;
   gap: 1rem;
   padding: 1rem;
-}
-
-.choice-box__button {
-  padding: 1rem;
-  background-color: mediumpurple;
-  display: none;
-  transform: translateY(0);
-  transition: transform .1s, box-shadow .1s;
-}
-
-.choice-box__button:hover {
-  background-color: rebeccapurple;
-}
-
-.choice-box__button:active {
-  transform: translateY(2px);
+  & > button {
+    padding: 1rem;
+    background-color: mediumpurple;
+    display: none;
+    transform: translateY(0);
+    transition: transform .1s, box-shadow .1s;
+    &:hover {
+      background-color: rebeccapurple;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
 }
 
 #storyText {
