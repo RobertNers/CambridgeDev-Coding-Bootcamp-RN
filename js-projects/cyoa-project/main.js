@@ -31,8 +31,8 @@ function displayButton(choiceButton, curScene, x) {
   const isValidButton = 
     buttonContent && (
       buttonContent.class === playerClass ||
-      !buttonContent.class ||
-      buttonContent.class === playerClasses[0]
+      buttonContent.class === playerClasses[0] ||
+      !buttonContent.class
     );
 
   if (isValidButton) {
