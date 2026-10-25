@@ -7,21 +7,14 @@ const undoButton = document.getElementById("buttonUndo");
 const storyText = document.getElementById("storyText");
 const endTracker = document.getElementById("timesFinished");
 
-const darkModeText = "floralwhite";
-const darkModeBg = "#202124";
-const darkModeLb = "#212024";
-
-const docBody = document.body.style;
-const leftBarCtl = document.getElementById("leftBar");
-const btnBorders = document.getElementsByClassName("left-bar__button");
-const lastBorder = document.getElementsByClassName("left-bar__text");
-
 const playerClasses = [ "Aimless Soul", "Witch", "Barbarian", "Easter Egg" ];
 
 let currentScene = "start";
 let previousScene = "";
 let previousClass = "";
 let playerClass = playerClasses[0];
+
+let isDark = localStorage.getItem("darkMode") === "true";
 
 function setEnds(direction) {
   let gameOverNumber = Number(localStorage.getItem("gameOvers"));
@@ -33,36 +26,36 @@ function setEnds(direction) {
   localStorage.setItem("gameOvers",gameOverNumber);
 };
 
-function checkTheme() {
-  const colorScheme = localStorage.getItem("theme");
-  if (colorScheme === "dark") {
-    return colorScheme;
-  } else if (colorScheme === "light") {
-    return colorScheme;
-  } else {
-    localStorage.setItem("theme", "light");
-    return localStorage.getItem("theme");
-  };
-};
-
 function displayButton(choiceButton, curScene, x) {
   const buttonContent = story[curScene].choices[x];
-  if ( buttonContent && ( buttonContent.class === playerClass || !buttonContent.class || buttonContent.class === playerClasses[0] ) ) {
+  const isValidButton = 
+    buttonContent && (
+      buttonContent.class === playerClass ||
+      !buttonContent.class ||
+      buttonContent.class === playerClasses[0]
+    );
+
+  if (isValidButton) {
     choiceButton.style.display = "block";
     choiceButton.innerHTML = buttonContent.body;
     choiceButton.onclick = () => {
+
       previousScene = currentScene;
       previousClass = playerClass;
       currentScene = buttonContent.next;
       checkClass(buttonContent.classSelect);
       setup();
+
     };
-  } else {
+
+  } 
+  else {
     choiceButton.style.display = "none";
   };
 };
 
 function checkClass(possibleClass) {
+  // TODO: split this up; rename as needed
   const classDisplay = document.getElementById("classDisplay");
 
   if (playerClasses.includes(possibleClass)) {
@@ -84,17 +77,6 @@ function checkClass(possibleClass) {
   else {
     classDisplay.style.color = "";
   };
-};
-
-function setup() {
-  if (!localStorage.getItem("gameOvers")) {
-    localStorage.setItem("gameOvers", "0");
-  };
-  storyText.innerHTML = story[currentScene].body;
-  endTracker.textContent = localStorage.getItem("gameOvers");
-  displayButton(choiceOne, currentScene, 0);
-  displayButton(choiceTwo, currentScene, 1);
-  displayButton(choiceThree, currentScene, 2);
 };
 
 function fakeHelp() {
@@ -127,53 +109,35 @@ function undoScene() {
   setup();
 };
 
-function changeTheme() {
-  const whichTheme = checkTheme();
-  if (whichTheme === "light") {
-    localStorage.setItem("theme","dark");
-    makeDark();
-  } else if (whichTheme === "dark") {
-    localStorage.setItem("theme","light");
-    makeLight();
+function setup() {
+  if (!localStorage.getItem("gameOvers")) {
+    localStorage.setItem("gameOvers", "0");
   };
+  storyText.innerHTML = story[currentScene].body;
+  endTracker.textContent = localStorage.getItem("gameOvers");
+  displayButton(choiceOne, currentScene, 0);
+  displayButton(choiceTwo, currentScene, 1);
+  displayButton(choiceThree, currentScene, 2);
 };
 
-function makeLight() {
-  docBody.backgroundColor = "";
-  docBody.color = "";
-  leftBarCtl.style.borderColor = "";
-  leftBarCtl.style.backgroundColor = "";
-  for (let button = 0; button < btnBorders.length; button += 1) {
-    btnBorders[button].style.borderColor = "";
-  };
-  lastBorder[0].style.borderColor = "";
-  lastBorder[1].style.borderColor = darkModeText;
+function setTheme(mode) {
+  document.querySelectorAll("body, .content, .left-bar, .left-bar__button, .left-bar__text").forEach(el => el.classList.toggle("dark-mode", mode));
 };
 
-function makeDark() {
-  docBody.backgroundColor = darkModeBg
-  docBody.color = darkModeText;
-  leftBarCtl.style.borderColor = darkModeText;
-  leftBarCtl.style.backgroundColor = darkModeLb;
-  for (let button = 0; button < btnBorders.length; button += 1) {
-    btnBorders[button].style.borderColor = darkModeText;
-  };
-  lastBorder[0].style.borderColor = darkModeText;
-  lastBorder[1].style.borderColor = darkModeText;
+function toggleTheme() {
+  isDark = !isDark;
+  localStorage.setItem("darkMode", isDark);
+  setTheme(isDark);
+}
+
+function main() {
+  setTheme(isDark);
+  
+  lightBulb.onclick = toggleTheme;
+  helpButton.onclick = fakeHelp;
+  undoButton.onclick = undoScene;
+  
+  setup();
 };
 
-function themePersist() {
-  const whichTheme = checkTheme();
-  if (whichTheme === "light") {
-    makeLight();
-  } else if (whichTheme === "dark") {
-    makeDark();
-  };
-};
-
-lightBulb.onclick = changeTheme;
-helpButton.onclick = fakeHelp;
-undoButton.onclick = undoScene;
-
-themePersist();
-setup();
+main();

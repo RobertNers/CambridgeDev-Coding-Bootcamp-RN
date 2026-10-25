@@ -55,7 +55,7 @@ a {
   border-top: 1px solid black;
 }
 
-.left-bar__button:hover, .choice-box__button:hover {
+.left-bar__button:hover {
   background-color: lightgrey;
 }
 
@@ -104,6 +104,7 @@ a {
   white-space: pre-line;
 }
 
+
 .coward {
   color: plum;
 }
@@ -140,3 +141,20 @@ a {
   font-weight: 700;
   color: darkkhaki;
 }
+
+.dark-mode {
+  background-color: #202124;
+  color: floralwhite;
+  border-color: floralwhite;
+}
+
+.dark-mode.left-bar {
+  background-color: #212024;
+  & .left-bar__button:hover {
+    color: black;
+  }
+  & .left-bar__text {
+    border-color: floralwhite;
+  }
+}
+
