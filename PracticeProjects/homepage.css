@@ -2,15 +2,22 @@ html {
   background-color: lightsteelblue;
 }
 
+h1 {
+  line-height: 0;
+  margin-top: 2rem;
+}
+
+li {
+  break-inside: avoid;
+}
+
+a {
+  text-decoration: none;
+}
 
 .content {
   margin: 1rem;
   font-family: "NTR";
-}
-
-h1 {
-  line-height: 0;
-  margin-top: 2rem;
 }
 
 .headcard {
@@ -24,27 +31,24 @@ h1 {
 }
 
 .headcard:hover {
-  box-shadow: 10px 12px 15px -9px rgba(0,0,0,0.54);
+  box-shadow: 10px 12px 15px -9px rgba(0, 0, 0, 0.54);
 }
 
 .cardtext {
   margin-left: 3rem;
 }
 
-.cardpic {
-}
-
 .profilepic {
   width: 150px;
   border: 5px solid rgb(191, 127, 34);
   border-radius: 100%;
-  box-shadow: 8px 10px 13px -11px rgba(0,0,0,0.54);
+  box-shadow: 8px 10px 13px -11px rgba(0, 0, 0, 0.54);
   transition: transform 0.2s ease-in, box-shadow 0.3s ease-in-out;
 }
 
 .profilepic:hover {
   transform: translateY(-10px);
-  box-shadow: 10px 12px 15px -9px rgba(0,0,0,0.54);
+  box-shadow: 10px 12px 15px -9px rgba(0, 0, 0, 0.54);
 }
 
 .directory {
@@ -54,9 +58,6 @@ h1 {
   height: 500px;
 }
 
-li {
-  break-inside: avoid;
-}
 
 @media (max-width: 800px) {
   .directory {
