@@ -1,16 +1,18 @@
 @font-face {
   font-family: "montserrat";
-  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-regular.woff2");
+  src: url("../../PracticeProjects/assets/fonts/Montserrat/Montserrat-Regular.woff2");
   font-weight: 400;
 }
+
 @font-face {
   font-family: "montserrat";
-  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-bold.woff2");
+  src: url("../../PracticeProjects/assets/fonts/Montserrat/Montserrat-Bold.woff2");
   font-weight: 700;
 }
+
 @font-face {
   font-family: "montserrat";
-  src: url("../../practiceprojects/assets/fonts/montserrat/montserrat-medium.woff2");
+  src: url("../../PracticeProjects/assets/fonts/Montserrat/Montserrat-Medium.woff2");
   font-weight: 500;
 }
 
@@ -23,8 +25,8 @@ button {
 body {
   font-family: "montserrat", sans-serif;
   font-size: 1.1rem;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   background: #F0FDFF;
   color: 202124;
 }
@@ -50,7 +52,8 @@ a {
   background-color: #F0FFFA;
 }
 
-.left-bar__button, .left-bar__text {
+.left-bar__button,
+.left-bar__text {
   padding: 1rem;
   border-top: 1px solid black;
 }
@@ -85,15 +88,18 @@ a {
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  & > button {
+
+  &>button {
     padding: 1rem;
     background-color: mediumpurple;
     display: none;
     transform: translateY(0);
     transition: transform .1s, box-shadow .1s;
+
     &:hover {
       background-color: rebeccapurple;
     }
+
     &:active {
       transform: translateY(2px);
     }
@@ -150,11 +156,12 @@ a {
 
 .dark-mode.left-bar {
   background-color: #212024;
+
   & .left-bar__button:hover {
     color: black;
   }
+
   & .left-bar__text {
     border-color: floralwhite;
   }
 }
-

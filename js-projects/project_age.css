@@ -1,16 +1,18 @@
 @font-face {
   font-family: "montserrat";
-  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-regular.woff2");
+  src: url("../PracticeProjects/assets/fonts/Montserrat/Montserrat-Regular.woff2");
   font-weight: 400;
 }
+
 @font-face {
   font-family: "montserrat";
-  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-bold.woff2");
+  src: url("../PracticeProjects/assets/fonts/Montserrat/Montserrat-Bold.woff2");
   font-weight: 700;
 }
+
 @font-face {
   font-family: "montserrat";
-  src: url("../practiceprojects/assets/fonts/montserrat/montserrat-medium.woff2");
+  src: url("../PracticeProjects/assets/fonts/Montserrat/Montserrat-Medium.woff2");
   font-weight: 500;
 }
 

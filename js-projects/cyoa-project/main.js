@@ -16,6 +16,7 @@ let previousClass = "";
 let playerClass = playerClasses[0];
 
 let isDark = localStorage.getItem("darkMode") === "true";
+let isRedo = false;
 
 function setNumberEnds(direction) {
   let gameOverNumber = Number(localStorage.getItem("gameOvers"));
@@ -107,6 +108,14 @@ function undoScene() {
     setNumberEnds("-");
   } else if (currentScene === "start" && isReverseFreshStart) {
     setNumberEnds("+");
+  };
+
+  if (!isRedo) {
+    isRedo = true;
+    undoButton.textContent = "Redo";
+  } else if (isRedo) {
+    isRedo = false;
+    undoButton.textContent = "Undo";
   };
 
   setup();
