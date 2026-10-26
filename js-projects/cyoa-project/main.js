@@ -6,8 +6,9 @@ const helpButton = document.getElementById("buttonHelp");
 const undoButton = document.getElementById("buttonUndo");
 const storyText = document.getElementById("storyText");
 const endTracker = document.getElementById("timesFinished");
+const classDisplay = document.getElementById("classDisplay");
 
-const playerClasses = [ "Aimless Soul", "Witch", "Barbarian", "Easter Egg" ];
+const playerClasses = ["Aimless Soul", "Witch", "Barbarian", "Easter Egg"];
 
 let currentScene = "start";
 let previousScene = "";
@@ -16,19 +17,19 @@ let playerClass = playerClasses[0];
 
 let isDark = localStorage.getItem("darkMode") === "true";
 
-function setEnds(direction) {
+function setNumberEnds(direction) {
   let gameOverNumber = Number(localStorage.getItem("gameOvers"));
   if (direction === "+") {
     gameOverNumber += 1;
   } else if (direction === "-") {
     gameOverNumber -= 1;
   };
-  localStorage.setItem("gameOvers",gameOverNumber);
+  localStorage.setItem("gameOvers", gameOverNumber);
 };
 
 function displayButton(choiceButton, curScene, x) {
   const buttonContent = story[curScene].choices[x];
-  const isValidButton = 
+  const isValidButton =
     buttonContent && (
       buttonContent.class === playerClass ||
       buttonContent.class === playerClasses[0] ||
@@ -43,31 +44,30 @@ function displayButton(choiceButton, curScene, x) {
       previousScene = currentScene;
       previousClass = playerClass;
       currentScene = buttonContent.next;
-      checkClass(buttonContent.classSelect);
+      setPlayerClass(buttonContent.classSelect);
       setup();
 
     };
 
-  } 
+  }
   else {
     choiceButton.style.display = "none";
   };
 };
 
-function checkClass(possibleClass) {
-  // TODO: split this up; rename as needed
-  const classDisplay = document.getElementById("classDisplay");
-
+function setPlayerClass(possibleClass) {
   if (playerClasses.includes(possibleClass)) {
     playerClass = possibleClass;
     classDisplay.textContent = playerClass;
   }
-  else if (possibleClass === gameOver ) {
+  else if (possibleClass === gameOver) {
     playerClass = playerClasses[0];
     classDisplay.textContent = playerClass;
-    setEnds("+");
+    setNumberEnds("+");
   };
+};
 
+function prettifyPlayerClass() {
   if (classDisplay.textContent === "Witch") {
     classDisplay.style.color = "magenta";
   }
@@ -98,12 +98,15 @@ function undoScene() {
 
   playerClass = previousClass;
   previousClass = classHolder;
-  checkClass(playerClass);
+  setPlayerClass(playerClass);
 
-  if (previousScene === "start" && (currentScene != "magic" && currentScene != "muscle")) {
-    setEnds("-");
-  } else if (currentScene === "start" && (previousScene != "magic" && previousScene != "muscle")) {
-    setEnds("+");
+  let isFreshStart = currentScene != "magic" && currentScene != "muscle";
+  let isReverseFreshStart = previousScene != "magic" && previousScene != "muscle";
+
+  if (previousScene === "start" && isFreshStart) {
+    setNumberEnds("-");
+  } else if (currentScene === "start" && isReverseFreshStart) {
+    setNumberEnds("+");
   };
 
   setup();
@@ -113,15 +116,21 @@ function setup() {
   if (!localStorage.getItem("gameOvers")) {
     localStorage.setItem("gameOvers", "0");
   };
+
   storyText.innerHTML = story[currentScene].body;
   endTracker.textContent = localStorage.getItem("gameOvers");
+
   displayButton(choiceOne, currentScene, 0);
   displayButton(choiceTwo, currentScene, 1);
   displayButton(choiceThree, currentScene, 2);
+
+  prettifyPlayerClass()
 };
 
 function setTheme(mode) {
-  document.querySelectorAll("body, .content, .left-bar, .left-bar__button, .left-bar__text").forEach(el => el.classList.toggle("dark-mode", mode));
+  document.querySelectorAll(
+    "body, .content, .left-bar, .left-bar__button, .left-bar__text"
+  ).forEach(el => el.classList.toggle("dark-mode", mode));
 };
 
 function toggleTheme() {
@@ -132,12 +141,13 @@ function toggleTheme() {
 
 function main() {
   setTheme(isDark);
-  
+
   lightBulb.onclick = toggleTheme;
   helpButton.onclick = fakeHelp;
   undoButton.onclick = undoScene;
-  
+
   setup();
 };
 
 main();
+
