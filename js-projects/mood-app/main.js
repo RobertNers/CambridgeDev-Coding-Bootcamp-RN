@@ -10,25 +10,19 @@ const defaultBG = sunriseBtn.getAttribute("src");
 function swapBG(btn) {
   const bg = btn.getAttribute("src");
   moodBG.style.backgroundImage = `url(${bg})`;
-  console.log(moodBG.style.backgroundImage)
   moodTitle.textContent = btn.dataset.title;
   localStorage.setItem("currentBackground", bg);
-  console.log(localStorage.getItem("currentBackground"))
   localStorage.setItem("currentTitle", moodTitle.textContent);
 };
 
 function main() {
-  console.log(defaultBG)
   let curBG = localStorage.getItem("currentBackground");
   let curTitle = localStorage.getItem("currentTitle");
   if (!curBG) {
     curBG = defaultBG;
     localStorage.setItem("currentBackground", curBG);
   };
-  console.log(curBG)
-  console.log(moodBG.style.backgroundImage)
   moodBG.style.backgroundImage = `url(${curBG})`
-  console.log(moodBG.style.backgroundImage)
 
 
   if (!curTitle) {
@@ -42,5 +36,12 @@ function main() {
   sunsetBtn.onclick = () => swapBG(sunsetBtn);
 };
 
+// TODO: make thumbnail sized images named regname-thumb.jpg
+// TODO: switch img src to those in html
+// TODO: write function to chop off -thumb from src attributes 
+// TODO: make sure everything works ;)
+//
+// TODO: title flexbox adjustment
+// TODO: smoother background image transition
 
 main()
