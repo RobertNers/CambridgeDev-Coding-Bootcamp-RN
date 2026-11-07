@@ -43,5 +43,6 @@ function main() {
 //
 // TODO: title flexbox adjustment
 // TODO: smoother background image transition
+// TODO: change scrolling behavior (see cyoa project's left bar - css)
 
 main()
