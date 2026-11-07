@@ -93,6 +93,7 @@ function undoScene() {
   if (previousScene === "") { return };
   let classHolder = playerClass;
   let sceneHolder = currentScene;
+  // TODO: the button stays as "redo" even when a different scene is moved to after undoing. fix that. 
 
   currentScene = previousScene;
   previousScene = sceneHolder;
