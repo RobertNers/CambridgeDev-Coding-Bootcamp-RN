@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, NavLink } from "react-router";
+import "./App.css";
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -54,14 +56,14 @@ function ProfileCard(props) {
   </div>)
 }
 
-*/
-
 
 function LoginStatus({ isLoggedIn }) {
   return (
     <h1>{isLoggedIn ? "Welcome Back!" : "Please, log in."}</h1>
   )
 }
+
+*/
 
 function TemperatureIndicator({ temp }) {
   const tempColors = { hot: "red", warm: "orange", cold: "blue", };
@@ -89,13 +91,45 @@ function Hyeastan() {
   )
 }
 
+/*
+function TaskList({ tasks }) {
+  const list = tasks.map((item) => <li key={item.id}>{item.title}</li>)
+  return <ul>{list}</ul>
+}
+const tasks = [
+  { id: 1, title: 'Task 1' },
+  { id: 2, title: 'Task 2' },
+];
 
+
+function TaskList({ tasks }) {
+  const list = tasks
+    .filter((item) => !item.completed)
+    .map((item) => <li key={item.id}>{item.title}</li>);
+  return (
+    <>
+      {list.length === 0 ? (
+        <p>All tasks completed!</p>
+      ) : (
+        <ul>{list}</ul>
+      )}
+    </>
+  );
+}
+
+const tasks = [
+  { id: 1, title: 'Task 1', completed: false },
+  { id: 2, title: 'Task 2', completed: true },
+];
+
+const tasks2 = [
+  { id: 1, title: 'Task 1', completed: true },
+  { id: 2, title: 'Task 2', completed: true },
+];
 
 function App() {
   return (
     <>
-      <LoginStatus isLoggedIn={true} />
-      <LoginStatus isLoggedIn={false} />
       <div style={{ display: "flex", gap: "2rem" }}>
         <div style={{ lineHeight: "3rem" }}>
           <TemperatureIndicator temp={40} />
@@ -104,9 +138,41 @@ function App() {
         </div>
         <Hyeastan />
       </div>
+      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks2} />
     </>
   )
 }
 
+
+export default App
+*/
+
+function Uboa() {
+  return <div className="uboa">
+    <a href="/">あ</a>
+    {"あ".repeat(99999)}
+  </div>
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/nonsense">MYSTERY</NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/about" element={<h1>About</h1>} />
+        <Route path="/contact" element={<h1>Contact</h1>} />
+        <Route path="/nonsense" element={<Uboa />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App

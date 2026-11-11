@@ -1,0 +1,47 @@
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: gray;
+  text-decoration: none;
+}
+
+nav a.active {
+  color: red;
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+
+  &:has(.uboa) nav {
+    display: none;
+  }
+}
+
+.uboa {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  word-break: break-all;
+  line-height: 1;
+  font-size: 1.2rem;
+
+}
+
+.uboa a {
+  display: inline-block;
+  text-decoration: none;
+  color: teal;
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
